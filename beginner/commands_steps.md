@@ -1,9 +1,8 @@
-
+A list of important Docker commands to know and use in 
 
 To see the running containers run
-​```
+```
 docker ps
-
 ```
 
 To see only running container IDs only
@@ -19,7 +18,8 @@ docker ps –a​q --filter "stopped"
 To see the logs of a container (running or stopped)
 ```
 docker logs <containername/id>
-``` ​
+```
+ ​
 To see the history of the container.  the different layers.
 ```
 docker history <container name / id>
@@ -28,14 +28,14 @@ docker history <container name / id>
 To gain detailed info about a container
 ```
 docker inspect <container name / id >
-
-``` ​
+```
+​
 
 To go into the container and run commands 
 ```
-docker exec -it <container name/id> sh 
-
-``` ​
+docker exec -it <container name/id> sh
+```
+ ​
 
 To run a container and automatically delete when it finishes
 ```
