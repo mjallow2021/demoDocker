@@ -3,4 +3,4 @@ FROM nginx:alpine
 # We get any updates necessary
 RUN apk update 
 # We copy all the files in the current directory (signified by the dot)
-COPY . /usr/local/nginx/html
+COPY . /usr/share/nginx/html
