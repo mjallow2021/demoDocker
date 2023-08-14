@@ -14,7 +14,7 @@
 #### our new container should now be listed
 
 ### Run your image make it a container
-```docker run mysimple -d -p 8080:80 --image=simplesite``` 
+```docker run mysimple -d -p 8080:80 -i=simplesite``` 
 ### After successful run check the container
 ```docker ps -a```
 ### Once you see your container is working
