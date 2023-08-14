@@ -1,0 +1,38 @@
+#Another sample dockerfile  demo-ing  the different keywords used.
+ARG
+# ARG TAG=20.04
+#used to set varialble which can be passed as arguments in the dockerfile
+FROM ubuntu:latest
+# which image do you want to use.
+# using an argument: FROM ubuntu:$TAG 
+LABEL
+# key-value pair to add meta data to the container
+MAINTAINER  mo jallow
+# who maintains this copy of the dockerfie / whose responsible
+COPY . /opt/
+#copy files needed to the container whilst its being built
+ADD 
+# similar to copy but can download external files from URLs 
+WORKDIR
+# the directory where the container works begins from 
+RUN
+# to run a command, 
+# remember every run command adds a layer to your container making it bigger.
+CMD
+# give you access to run commands whilst the container is being built
+# eg if you want to change directory or rename or run a script
+# can be used to make allow user of the container to interact with it
+ENTRYPOINT
+# Runs a command for docker to execute, cannot be modified later
+
+ENV
+# set environment varialbles
+USER
+# sets the user - do not use root for security reasons
+VOLUME
+# a way to add / attach volumes
+EXPOSE
+# what ports on the container you want  expose 
+
+
+Not all of these are used in every dockerfile.  Just use whats needed
