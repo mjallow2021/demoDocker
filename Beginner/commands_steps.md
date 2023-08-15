@@ -72,3 +72,4 @@ Docker automatically creates a directory for the volume on the host under the pa
 `/var/lib/docker/volume/ `
 Mount containers to this volume to ensure data persistence and data sharing among multiple containers.
 
+
