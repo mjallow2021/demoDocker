@@ -60,8 +60,6 @@ services:
 # configs for the mongodb starts below
   mongo:
     image: mongo
-    ports:
-      - 27017:27017
     environment:
       - MONGO_INITDB_ROOT_USERNAME=devdb
       - MONGO_INITDB_ROOT_PASSWORD=dev@123
@@ -75,4 +73,36 @@ Save the above code with a `.yml or .yaml` extension, like so `docker-compose.ym
 To run it, enter the command below
 ```
 docker-compose dockercompose.yml up
+```
+```yaml
+#Same file with networks and exteral volumes defined.
+version: '3.8'
+services:
+  webapp:
+    image: mylandmarktech/spring-boot-mongo
+#    restart: always
+    ports:
+      - 3000:8080
+    networks:
+      - tesla
+    environment:
+      - MONGO_DB_HOSTNAME=mongodb
+      - MONGO_DB_USERNAME=devdb
+      - MONGO_DB_PASSWORD=dev@123
+  mongodb:
+       image: mongo
+ #      restart: always
+       volumes:
+         - db-data:/data/db
+       networks:
+         - tesla
+       environment:
+         - MONGO_INITDB_ROOT_USERNAME=devdb
+         - MONGO_INITDB_ROOT_PASSWORD=dev@123
+volumes:
+   db-data:
+     external: false
+networks:
+  tesla:
+    external: false
 ```
