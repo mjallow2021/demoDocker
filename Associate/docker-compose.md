@@ -7,7 +7,9 @@ It does come bundles with docker,  but if its not you can install it using
 After the install check the version
 `docker-compose --version` 
 
-If its installed, it will display version number
+If its installed, it will display version number or run
+To get more info about commands 
+`docker-compose --version`
 
 The docker compose file is usually called that name, but can be given any other name, and can be in YAML or JSON.
 
@@ -41,39 +43,32 @@ services: # list the services you gonna create
       - /home/ubuntu/db:/data/db # host path/folder to container/path/folder
 
 ```
-
-The 2 commands above have now been added into a single docker-compose file below ready to deploy.
-*Note:* There is no network added as docker will add them automatcally into their own network  
-
-``` yaml
-version: '3'
-services:
-# Configs for the springapp starts here
-  springapp:
-    image: mylandmarktech/spring-boot-mongo
-    ports:
-      - 4000:8080
-    environment:
-      - MONGO_DB_ROOT_USERNAME=devdb
-      - MONGO_DB_ROOT_PASSWORD=dev@123
-      - MONGO_DB_HOSTNAME=mongo
-# configs for the mongodb starts below
-  mongo:
-    image: mongo
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=devdb
-      - MONGO_INITDB_ROOT_PASSWORD=dev@123
-    volumes:
-      - db-data:/data/db
-
-```
   
 Save the above code with a `.yml or .yaml` extension, like so `docker-compose.yml`
 
 To run it, enter the command below
 ```
-docker-compose dockercompose.yml up
+docker-compose up
 ```
+If you save it with a different name eg `testcompose.yml`
+your command should be 
+`docker-compose -f testcompose.yml up`
+
+To run it in detached mode, add the `-d` flag
+
+To stop your containers 
+`docker-compose -f testcompose.yml down`
+
+To check if your docker compose file is correct
+`docker-compose -f testcompose.yml config`
+
+To get more info about commands 
+`docker-compose --help`
+
+
+
+
+Docker-compose file below
 ```yaml
 #Same file with networks and exteral volumes defined.
 version: '3.8'
