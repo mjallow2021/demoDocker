@@ -99,5 +99,5 @@ volumes:
      external: false
 networks:
   tesla:
-    external: false
+    external: true
 ```
