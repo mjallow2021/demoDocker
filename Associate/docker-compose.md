@@ -44,12 +44,17 @@ services: # list the services you gonna create
 
 ```
   
-Save the above code with a `.yml or .yaml` extension, like so `docker-compose.yml`
+YAML flies end a `.yml or .yaml` extension, like so `docker-compose.yml`
 
-To run it, enter the command below
+To your docker compose file, enter the command below
 ```
 docker-compose up
 ```
+The containers generated from your file will be name in the following format:
+folder_servicename_no  
+If you specify a container name, it will be containername_no 
+
+
 If you save it with a different name eg `testcompose.yml`
 your command should be 
 `docker-compose -f testcompose.yml up`
