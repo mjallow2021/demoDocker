@@ -1,0 +1,32 @@
+#A docker compose file to deploy a service
+version: '3'
+services:
+  webapp:
+    image: mylandmarktech/spring-boot-mongo
+#    restart: always
+    ports:
+      - 5000:8080
+    networks:
+      - myoverlay
+    environment:
+      - MONGO_DB_HOSTNAME=mongodb
+      - MONGO_DB_USERNAME=devdb
+      - MONGO_DB_PASSWORD=dev@123
+    depends_on:
+      - mongodb
+  mongodb:
+       image: mongo
+ #      restart: always
+       volumes:
+         - db-data:/data/db
+       networks:
+         - myoverlay
+       environment:
+         - MONGO_INITDB_ROOT_USERNAME=devdb
+         - MONGO_INITDB_ROOT_PASSWORD=dev@123
+volumes:
+   db-data:
+     external: false
+networks:
+  myoverlay:
+   # external: true
