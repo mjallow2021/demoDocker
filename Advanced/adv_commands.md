@@ -91,5 +91,5 @@ docker stack rm [stackname]
 ```
 
 
-__This is only an introduction to Swarm, there are manay more options and capabilities which can be explored.  __
+**This is only an introduction to Swarm, there are manay more options and capabilities which can be explored.  **
 
